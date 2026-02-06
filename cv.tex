@@ -1,210 +1,147 @@
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
-%	The MIT License (MIT)
-%
-%	Copyright (c) 2021 Jitin Nair
-%
-%	Permission is hereby granted, free of charge, to any person obtaining a copy
-%	of this software and associated documentation files (the "Software"), to deal
-%	in the Software without restriction, including without limitation the rights
-%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%	copies of the Software, and to permit persons to whom the Software is
-%	furnished to do so, subject to the following conditions:
-%	
-%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%	THE SOFTWARE.
-%	
-%
-%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%------------------------
+% Resume Template
+% Author : Anubhav Singh
+% Github : https://github.com/xprilion
+% License : MIT
+%------------------------
 
-%----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
-%----------------------------------------------------------------------------------------
+\documentclass[a4paper,20pt]{article}
 
-% article class because we want to fully customize the page and not use a cv template
-\documentclass[a4paper,12pt]{article}
-
-%----------------------------------------------------------------------------------------
-%	FONT
-%----------------------------------------------------------------------------------------
-
-% % fontspec allows you to use TTF/OTF fonts directly
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% % modified for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES
-%----------------------------------------------------------------------------------------
-\usepackage{url}
-\usepackage{parskip} 	
-
-%other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-%tabularx environment
-\usepackage{tabularx}
-
-%for lists within experience section
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
 \usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
 
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-%to prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
 
-%custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
+\urlstyle{rm}
 
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
-%for publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
-%Setup hyperref package, and colours for links
-\usepackage[unicode, draft=false]{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
-\addbibresource{citations.bib}
-\setlength\bibitemsep{1em}
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
 
-%for social icons
-\usepackage{fontawesome5}
+\newcommand{\resumeItemWithoutTitle}[1]{
+  \item\small{
+    {\vspace{-2pt}}
+  }
+}
 
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    }
-    {
-    }
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
 
 
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
 
-%----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
-%----------------------------------------------------------------------------------------
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
+
 \begin{document}
 
-% non-numbered pages
-\pagestyle{empty} 
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\LARGE Abhishek Tentiwala}} & Email: \href{mailto:atentiwala@gmail.com}{atentiwala@gmail.com}\\
+  \href{https://www.linkedin.com/in/abhishek-tentiwala-5bb781335/}{LinkedIn: Abhishek Tentiwala} & Mobile:~~~+91-7668339061 \\
+  \href{https://github.com/AbhishekTentiwala}{Github: ~~github.com/AbhishekTentiwala} \\
+\end{tabular*}
 
-%----------------------------------------------------------------------------------------
-%	TITLE
-%----------------------------------------------------------------------------------------
+%-----------EDUCATION-----------------
+\section{~~Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {National Institute of Technology Agartala}{Tripura, India}
+      {Bachelor of Technology - Computer Science and Technology;  GPA: 9.22}{2024 - 2028}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Jee Mains:}   (year 2024) percentile-98.89}}}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Jee Advanced:}   (year 2024) AIR-22700}}}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Intermediate:} Dhanuka Senior Sec. School , Mathura  (year 2023) percentage-93}}}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Matriculation:} Dhanuka Senior Sec. School , Mathura  (year 2021) percentage-97.4}}}
+    \resumeSubHeadingListEnd
+	    
+\vspace{-5pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Languages}{~~~~~~Python, C++, TypeScript, JavaScript, SQL, Bash}
+	\resumeSubItem{Frameworks}{~~~~React, Nextjs, Nodejs, Expressjs}
+	\resumeSubItem{Tools}{~~~~~~~~~~~~~~GIT, PostgreSQL, MySQL, SQLite}
+	
+	\resumeSubItem{Soft Skills}{~~~~~~~Leadership, Event Management, Writing, Public Speaking, Time Management}
 
-\begin{tabularx}{\linewidth}{@{} C @{}}
-\Huge{Abhishek Tentiwala} \\[7.5pt]
-\href{https://github.com/AbhishekTentiwala}{\raisebox{-0.05\height}\faGithub\ AbhishekTentiwala} \ $|$ \ 
-\href{https://www.linkedin.com/in/abhishek-tentiwala-5bb781335/}{\raisebox{-0.05\height}\faLinkedin\ AbhishekTentiwala} \ $|$ \ 
-\href{https://leetcode.com/u/abt09/}{\raisebox{-0.05\height}\faCode\ LeetCode} \ $|$ \ 
-\href{https://codeforces.com/profile/AbhishekTentiwala}{\raisebox{-0.05\height}\faCode\ Codeforces} \ $|$ \ 
-\href{atentiwala@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ atentiwala@gmail.com} \ $|$ \ 
-\href{tel:+917668339061}{\raisebox{-0.05\height}\faMobile \ +91 7668339061} \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	EDUCATION
-%----------------------------------------------------------------------------------------
-\section{Education}
-\begin{tabularx}{\linewidth}{@{}l X r@{}}
-\textbf{National Institute Of Technology, Agartala} & & \textbf{2024 – 2028} \\
-\multicolumn{3}{@{}X@{}}{Bachelor of Technology in Computer Science and Engineering - CGPA - 8.9} \\
-\multicolumn{3}{@{}X@{}}{Agartala, Tripura} \\[7.5pt]
-
-\textbf{Senior Secondary Education (Intermediate)} - Dhanuka Senior Sec. School, Mathura (Percentage-92.4) & & \textbf{2024} \\[7.5pt]
-
-\textbf{Secondary Education (Matriculation)} - Dhanuka Senior Sec. School, Mathura (Percentage-96.6) & & \textbf{2022} \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	TECHNICAL SKILLS
-%----------------------------------------------------------------------------------------
-\section{Technical Skills}
-\textbf{Languages:} C++, Python, Dart, JavaScript \\
-\textbf{Technologies/Frameworks:} Flutter, FastAPI, Firebase, REST APIs, JSON \\
-\textbf{Developer Tools:} Android Studio, VS Code, Git, GitHub, PostgreSQL
-
-%----------------------------------------------------------------------------------------
-%	PROJECTS
-%----------------------------------------------------------------------------------------
-\section{Projects}
-
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-\textbf{Spotify Clone (Redesigned)} \faLink\ \textbar\ Flutter, FastAPI, PostgreSQL & \hfill \textbf{2025} \\[3.75pt]
-\multicolumn{2}{@{}X@{}}{
-• Developing a cross-platform music streaming app inspired by Spotify with a redesigned UI and additional features beyond the official app.
-
-• Building the frontend with Flutter and the backend using FastAPI with PostgreSQL for data management.
-
-• Planned features include collaborative playlists, personalized recommendations, lyrics display, and offline playback.
-
-• Focused on MVVM architecture and smooth user experience during development.
-}  \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	CODING PLATFORMS
-%----------------------------------------------------------------------------------------
+\resumeSubHeadingListEnd
+\vspace{-5pt}
 \section{Coding Platforms}
-• Solved 500+ problems across LeetCode and Codeforces \\
-• Active competitive programmer on multiple platforms
+\begin{description}[font=$\bullet$]
+\item {1000+ contest rating on CodeForces.}
+\vspace{-5pt}
+\item {Solved 500+ across Platforms \href{https://codeforces.com/profile/AbhishekTentiwala}{Codeforces}, \href{https://leetcode.com/u/abt09}{Leetcode} , Codechef and \href{https://www.geeksforgeeks.org/profile/atentijcp0}{GeeksForGeeks}.}
 
-%----------------------------------------------------------------------------------------
-%	POSITION OF RESPONSIBILITY
-%----------------------------------------------------------------------------------------
+\end{description}
+
+%-----------PROJECTS-----------------
+\vspace{-5pt}
+\section{Projects And Contributions}
+\resumeSubHeadingListStart
+\resumeSubItem{Chatter - web application for messaging and file sharing \href{https://github.com/AbhishekTentiwala/Chater}{(GitHub)} (Nextjs , Prisma, PostgresSQL, UploadThings third party service for file sharing, Web Sockets)}{(Work in progress) A Self paced personal project to learn different tech stacks with admin access implementation and chat room concept .(Summer 2025)}
+\vspace{2pt}
+\resumeSubItem{RecyCool - Buy and Sell Website for NIT Agartala By E-Cell \href{https://github.com/ecellnita/Campus_Recycle}{(GitHub)} (Nextjs , MongoDB, Expressjs, Cloudinary, NodeMailer)}{(Work in progress) Contributed as both frontend and Backend developer as a core Tech team member of E-Cell NITA to solve issues to make project more practical and sound.}
+\vspace{2pt}
+\resumeSubItem{Mokshya  - College fest website \href{https://github.com/AbhishekTentiwala/mokshya_new}{(GitHub)} (Nextjs , MongoDB, Expressjs, Tailwind Css)}{Leaded a team of three members for the development of website for Cultural fest of College under three days getting experience of working under pressure.(Dec 2025)}
+\vspace{2pt}
+
+\resumeSubHeadingListEnd
+\vspace{-5pt}
 \section{Position of Responsibility}
-• \textbf{Core Technical Member, Anima Aero Club, NIT-A:} Designed and built fixed-wing and single-rotor aircraft for technical competitions and research projects. Operated as a drone pilot, conducting flight tests and aerial surveys.
+\begin{description}[font=$\bullet$]
+\item {Core Member, E-Cell, NIT-A: Contributed to the development and maintenance of technical projects for the Entrepreneurship Cell. Actively participated in initiatives, event organization, and technical support.}
+\item {Core Member, WeCan, NIT-A: Contributed to the development and maintenance of Mobile application for data management and other techmical supports.}
+\end{description}
 
-%----------------------------------------------------------------------------------------
-%	ACHIEVEMENTS
-%----------------------------------------------------------------------------------------
-\section{Achievements}
-• Ranked among top \textbf{5.18 percentile} students in \textbf{JEE MAIN 2024}, among 1.2 million students. \hfill \textbf{2024}
+\vspace{-5pt}
+\section{Extracurricular}
+\begin{description}[font=$\bullet$]
+\item {Hosted and anchored an E-Cell club event Initiate 4.0, showcasing strong public speaking, event coordination, and audience engagement skills. - 2023}
+\vspace{-5pt}
+\item {Managed a collaboration event between WeCan and Malhar clubs of NIT Agartala.}
 
-\vfill
-\center{\footnotesize Last updated: \today}
+\end{description}
 
 \end{document}
